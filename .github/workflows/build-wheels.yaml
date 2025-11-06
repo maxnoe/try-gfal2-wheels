@@ -1,0 +1,49 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "**"
+  pull_request:
+
+
+jobs:
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: 
+          - ubuntu-latest
+          # - ubuntu-24.04-arm
+          # - windows-latest
+          # - windows-11-arm
+          # - macos-15-intel # x86
+          # - macos-14       # arm
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/checkout@v5
+        repository: 'cern-fts/gfal2'
+        revision: 'v2.23.5'
+        path: gfal2
+
+      - uses: actions/checkout@v5
+        repository: 'cern-fts/gfal2-python'
+        revision: 'v1.9.5'
+        path: gfal2-python
+
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v3.2.1
+        with:
+          package-dir: gfal2-python
+          output-dir: wheelhouse
+          config-file: pyproject.toml
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
+          path: ./wheelhouse/*.whl

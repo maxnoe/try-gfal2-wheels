@@ -1,0 +1,17 @@
+# Build third party library
+[tool.cibuildwheel]
+
+build = [
+  "cp39-*",
+]
+
+before-all = [
+  "./apply-patches.sh",
+]
+
+# Install system library
+[tool.cibuildwheel.linux]
+before-all = [
+  "./install-build-dependencies.sh",
+  "./build-gfal.sh",
+]
