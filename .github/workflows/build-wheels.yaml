@@ -27,14 +27,16 @@ jobs:
       - uses: actions/checkout@v5
 
       - uses: actions/checkout@v5
-        repository: 'cern-fts/gfal2'
-        revision: 'v2.23.5'
-        path: gfal2
+        with:
+          repository: 'cern-fts/gfal2'
+          ref: 'v2.23.5'
+          path: gfal2
 
       - uses: actions/checkout@v5
-        repository: 'cern-fts/gfal2-python'
-        revision: 'v1.9.5'
-        path: gfal2-python
+        with:
+          repository: 'cern-fts/gfal2-python'
+          ref: 'v1.9.5'
+          path: gfal2-python
 
       - name: Build wheels
         uses: pypa/cibuildwheel@v3.2.1
