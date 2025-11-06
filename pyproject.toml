@@ -12,6 +12,6 @@ before-all = [
 # Install system library
 [tool.cibuildwheel.linux]
 before-all = [
-  "./install-build-dependencies.sh",
+  "bash ./install-build-dependencies.sh",
   "./build-gfal.sh",
 ]
