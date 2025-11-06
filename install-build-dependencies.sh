@@ -16,4 +16,5 @@ yum install -y \
   libssh2-devel \
   gtest-devel \
   libuuid-devel \
-  json-c-devel
+  json-c-devel \
+  cryptopp-devel
