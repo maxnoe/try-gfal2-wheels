@@ -17,5 +17,4 @@ yum install -y \
   gtest-devel \
   libuuid-devel \
   json-c-devel \
-  cryptopp-devel \
-  boost-python3-devel
+  cryptopp-devel

@@ -11,9 +11,17 @@ before-all = [
 
 # Install system library
 [tool.cibuildwheel.linux]
+
+# global setup
 before-all = [
-  "bash ./install-build-dependencies.sh",
+  "./install-build-dependencies.sh",
   "./build-gfal2.sh",
+  "./get-boost.sh",
+]
+
+# needs to be build for each python version
+before-build = [
+  "./build-boost.sh",
 ]
 
 [tool.cibuildwheel.environment]
