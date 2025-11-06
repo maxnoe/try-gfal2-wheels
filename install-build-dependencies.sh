@@ -8,8 +8,6 @@ yum install -y \
   libattr-devel \
   openldap-devel \
   zlib-devel \
-  lfc-devel \
-  dpm-devel \
   srm-ifce-devel \
   dcap-devel \
   globus-gass-copy-devel \
