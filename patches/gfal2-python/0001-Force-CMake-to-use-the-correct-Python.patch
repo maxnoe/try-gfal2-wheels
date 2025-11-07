@@ -16,7 +16,7 @@ index 6125588..cb1f0da 100755
  
      # Run the cmake and make commands
 -    check_call(['cmake', '-DSKIP_TESTS=TRUE', source_dir], cwd=build_dir)
-+    check_call(['cmake', f'-DPython_EXECUTABLE={sys.executable}', '-DSKIP_TESTS=TRUE', source_dir], cwd=build_dir)
++    check_call(['cmake', f'-DPython_ROOT_DIR={sys.prefix}', '-DSKIP_TESTS=TRUE', source_dir], cwd=build_dir)
      check_call(['make'], cwd=build_dir)
  
      # install
