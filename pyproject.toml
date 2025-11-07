@@ -7,6 +7,10 @@ build = [
   "cp39-*",
 ]
 
+skip = [
+  "*musllinux*",
+]
+
 # Install system library
 [tool.cibuildwheel.linux]
 
