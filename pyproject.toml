@@ -1,6 +1,8 @@
 # Build third party library
 [tool.cibuildwheel]
 
+build-frontend = { name = "pip", args = ["--no-build-isolation"] }
+
 build = [
   "cp39-*",
 ]
