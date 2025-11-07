@@ -21,4 +21,5 @@ before-all = [
 # needs to be build for each python version
 before-build = [
   "./build-boost.sh",
+  "pip install setuptools",
 ]
